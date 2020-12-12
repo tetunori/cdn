@@ -1,3 +1,20 @@
+
+// MIT License
+// Copyright (c) 2020 Tetsunori NAKAYAMA
+
+// stomachionSolutions : 
+//   Array of 536 solutions for Archimedes' Stomachion.
+//   Access `stomachionSolutions[solutionIndex][polygonIndex][pointIndex].x` or `.y`.
+//   Each solution consists of 
+//     11 triangles, 2 quadrangles and 1 (irregular) pentagon.
+// stmc : 
+//   Shorter name of `stomachionSolutions`.
+
+// stomachionSolutionsX10
+// x10 scale of `stomachionSolutions`.
+// stmcx10 :
+//   Shorter name of `stomachionSolutionsX10`.
+
 const stomachionSolutions = [
 [[{x:0,y:0}, {x:0,y:12}, {x:2,y:10}], [{x:0,y:0}, {x:2,y:4}, {x:3,y:0}], [{x:0,y:0}, {x:2,y:10}, {x:4,y:8}], [{x:0,y:12}, {x:6,y:12}, {x:2,y:10}], [{x:3,y:0}, {x:2,y:4}, {x:3,y:6}], [{x:4,y:11}, {x:6,y:12}, {x:10,y:8}], [{x:6,y:6}, {x:8,y:4}, {x:6,y:0}], [{x:6,y:12}, {x:12,y:12}, {x:10,y:8}], [{x:9,y:6}, {x:12,y:6}, {x:12,y:4}], [{x:10,y:8}, {x:8,y:4}, {x:4,y:8}], [{x:12,y:12}, {x:12,y:6}, {x:9,y:6}], [{x:2,y:10}, {x:4,y:11}, {x:10,y:8}, {x:4,y:8}], [{x:6,y:0}, {x:9,y:6}, {x:12,y:4}, {x:12,y:0}], [{x:4,y:8}, {x:6,y:6}, {x:6,y:0}, {x:3,y:0}, {x:3,y:6}]],
 [[{x:0,y:0}, {x:0,y:12}, {x:2,y:10}], [{x:0,y:0}, {x:2,y:4}, {x:3,y:0}], [{x:0,y:12}, {x:6,y:9}, {x:4,y:8}], [{x:0,y:12}, {x:6,y:12}, {x:6,y:9}], [{x:2,y:10}, {x:4,y:8}, {x:0,y:0}], [{x:3,y:0}, {x:2,y:4}, {x:3,y:6}], [{x:6,y:0}, {x:6,y:6}, {x:8,y:4}], [{x:6,y:12}, {x:8,y:12}, {x:6,y:9}], [{x:10,y:2}, {x:6,y:6}, {x:12,y:6}], [{x:12,y:0}, {x:6,y:0}, {x:8,y:4}], [{x:12,y:0}, {x:10,y:2}, {x:12,y:6}], [{x:12,y:6}, {x:6,y:6}, {x:4,y:8}, {x:6,y:9}], [{x:12,y:12}, {x:12,y:6}, {x:6,y:9}, {x:8,y:12}], [{x:4,y:8}, {x:6,y:6}, {x:6,y:0}, {x:3,y:0}, {x:3,y:6}]],
@@ -536,3 +553,23 @@ const stomachionSolutions = [
 [[{x:0,y:6}, {x:0,y:12}, {x:4,y:10}], [{x:0,y:12}, {x:6,y:12}, {x:4,y:10}], [{x:3,y:6}, {x:6,y:6}, {x:6,y:4}], [{x:6,y:0}, {x:6,y:12}, {x:8,y:10}], [{x:6,y:0}, {x:8,y:4}, {x:9,y:0}], [{x:6,y:12}, {x:3,y:6}, {x:2,y:8}], [{x:6,y:12}, {x:6,y:6}, {x:3,y:6}], [{x:6,y:12}, {x:12,y:12}, {x:8,y:10}], [{x:8,y:10}, {x:10,y:8}, {x:6,y:0}], [{x:9,y:0}, {x:8,y:4}, {x:9,y:6}], [{x:12,y:12}, {x:12,y:6}, {x:8,y:10}], [{x:0,y:0}, {x:0,y:6}, {x:2,y:8}, {x:3,y:6}], [{x:0,y:0}, {x:3,y:6}, {x:6,y:4}, {x:6,y:0}], [{x:10,y:8}, {x:12,y:6}, {x:12,y:0}, {x:9,y:0}, {x:9,y:6}]],
 [[{x:0,y:6}, {x:0,y:12}, {x:4,y:10}], [{x:0,y:12}, {x:6,y:12}, {x:4,y:10}], [{x:3,y:6}, {x:6,y:6}, {x:6,y:4}], [{x:6,y:0}, {x:6,y:12}, {x:8,y:10}], [{x:6,y:0}, {x:8,y:4}, {x:9,y:0}], [{x:6,y:12}, {x:3,y:6}, {x:2,y:8}], [{x:6,y:12}, {x:6,y:6}, {x:3,y:6}], [{x:6,y:12}, {x:12,y:12}, {x:10,y:8}], [{x:8,y:10}, {x:10,y:8}, {x:6,y:0}], [{x:9,y:0}, {x:8,y:4}, {x:9,y:6}], [{x:12,y:12}, {x:12,y:6}, {x:10,y:8}], [{x:0,y:0}, {x:0,y:6}, {x:2,y:8}, {x:3,y:6}], [{x:0,y:0}, {x:3,y:6}, {x:6,y:4}, {x:6,y:0}], [{x:10,y:8}, {x:12,y:6}, {x:12,y:0}, {x:9,y:0}, {x:9,y:6}]]
 ];
+
+// Shorter name
+const stmc = stomachionSolutions;
+
+// x10 scale version
+const stomachionSolutionsX10 = [];
+for( polygons of stomachionSolutions ){
+  const polygonsX10 = [];
+  for( polygon of polygons ){
+    const polygonX10 = [];
+    for( pointObj of polygon ){
+      polygonX10.push( {x: pointObj.x*10, y:pointObj.y*10} );
+    }
+    polygonsX10.push( polygonX10 );
+  }
+  stomachionSolutionsX10.push( polygonsX10 );
+}
+
+// Shorter name
+const stmcx10 = stomachionSolutionsX10;
