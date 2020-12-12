@@ -15,6 +15,18 @@
 // stmcx10 :
 //   Shorter name of `stomachionSolutionsX10`.
 
+// getScaledStomachionSolutions( scale )
+//   Argumnet : scale number
+//   Return   : scaled stomachionSolutions array. 
+
+// polygonLengths
+//   Array of lengths of Stomachion polygons
+//   Useful for checking congruency.
+
+// getScaledPolygonLengths( scale )
+//   Argumnet : scale number
+//   Return   : scaled polygon lenghts array. 
+
 const stomachionSolutions = [
 [[{x:0,y:0}, {x:0,y:12}, {x:2,y:10}], [{x:0,y:0}, {x:2,y:4}, {x:3,y:0}], [{x:0,y:0}, {x:2,y:10}, {x:4,y:8}], [{x:0,y:12}, {x:6,y:12}, {x:2,y:10}], [{x:3,y:0}, {x:2,y:4}, {x:3,y:6}], [{x:4,y:11}, {x:6,y:12}, {x:10,y:8}], [{x:6,y:6}, {x:8,y:4}, {x:6,y:0}], [{x:6,y:12}, {x:12,y:12}, {x:10,y:8}], [{x:9,y:6}, {x:12,y:6}, {x:12,y:4}], [{x:10,y:8}, {x:8,y:4}, {x:4,y:8}], [{x:12,y:12}, {x:12,y:6}, {x:9,y:6}], [{x:2,y:10}, {x:4,y:11}, {x:10,y:8}, {x:4,y:8}], [{x:6,y:0}, {x:9,y:6}, {x:12,y:4}, {x:12,y:0}], [{x:4,y:8}, {x:6,y:6}, {x:6,y:0}, {x:3,y:0}, {x:3,y:6}]],
 [[{x:0,y:0}, {x:0,y:12}, {x:2,y:10}], [{x:0,y:0}, {x:2,y:4}, {x:3,y:0}], [{x:0,y:12}, {x:6,y:9}, {x:4,y:8}], [{x:0,y:12}, {x:6,y:12}, {x:6,y:9}], [{x:2,y:10}, {x:4,y:8}, {x:0,y:0}], [{x:3,y:0}, {x:2,y:4}, {x:3,y:6}], [{x:6,y:0}, {x:6,y:6}, {x:8,y:4}], [{x:6,y:12}, {x:8,y:12}, {x:6,y:9}], [{x:10,y:2}, {x:6,y:6}, {x:12,y:6}], [{x:12,y:0}, {x:6,y:0}, {x:8,y:4}], [{x:12,y:0}, {x:10,y:2}, {x:12,y:6}], [{x:12,y:6}, {x:6,y:6}, {x:4,y:8}, {x:6,y:9}], [{x:12,y:12}, {x:12,y:6}, {x:6,y:9}, {x:8,y:12}], [{x:4,y:8}, {x:6,y:6}, {x:6,y:0}, {x:3,y:0}, {x:3,y:6}]],
@@ -573,3 +585,59 @@ for( polygons of stomachionSolutions ){
 
 // Shorter name
 const stmcx10 = stomachionSolutionsX10;
+
+// Get scaled stomachion solutions
+const getScaledStomachionSolutions = ( scale ) => {
+
+  const stomachionSolutionsXN = [];
+
+  for( polygons of stomachionSolutions ){
+    const polygonsXN = [];
+    for( polygon of polygons ){
+      const polygonXN = [];
+      for( pointObj of polygon ){
+        polygonXN.push( {x: pointObj.x*scale, y:pointObj.y*scale} );
+      }
+      polygonsXN.push( polygonXN );
+    }
+    stomachionSolutionsXN.push( polygonsXN );
+  }
+
+  return stomachionSolutionsXN;
+
+}
+
+// Polygon lengths
+const polygonLengths = [
+  [2.8284, 10.198, 12, 0, 0],
+  [3, 4.1231, 4.4721, 0, 0],
+  [2.8284, 8.9443, 10.198, 0, 0],
+  [2.2361, 4.1231, 6, 0, 0],
+  [2.2361, 5.6569, 6.7082, 0, 0],
+  [2, 3, 3.6056, 0, 0],
+  [3, 6, 6.7082, 0, 0],
+  [2.8284, 4.4721, 6, 0, 0],
+  [2.8284, 4.4721, 6, 0, 0], // twins
+  [4.4721, 5.6569, 6, 0, 0],
+  [4.4721, 5.6569, 6, 0, 0], // twins
+  [2.2361, 2.8284, 6, 6.7082, 0],
+  [3.6056, 4, 6, 6.7082, 0],
+  [2.2361, 2.8284, 3, 6, 6],
+];
+
+// Get scaled polygon lengths
+const getScaledPolygonLengths = ( scale ) => {
+  
+  scaledPolygonLengths = [];
+
+  for( lengths of polygonLengths ){
+    scaledLengths = [];
+    for( element of lengths ){
+      scaledLengths.push( element * scale );
+    }
+    scaledPolygonLengths.push( scaledLengths );
+  }
+
+  return scaledPolygonLengths;
+
+}
