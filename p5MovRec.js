@@ -15,11 +15,11 @@ class P5MovRec {
   };
   codec = undefined;
 
-  movTypeId = {
+  static movTypeId = {
     webm: 'webm',
     mp4: 'mp4',
   };
-  movType = this.movTypeId.webm;
+  movType = P5MovRec.movTypeId.webm;
 
   /**
    * Constructor.
@@ -59,10 +59,10 @@ class P5MovRec {
    */
   generateMovie() {
     switch (this.movType) {
-      case this.movTypeId.webm:
+      case P5MovRec.movTypeId.webm:
         this.generateWebm();
         break;
-      case this.movTypeId.mp4:
+      case P5MovRec.movTypeId.mp4:
         this.generateMp4();
         break;
     }
@@ -128,7 +128,7 @@ class P5MovRec {
    */
   keyHandler() {
     // movie type default value is 'webm'
-    this.movType = this.movTypeId.webm;
+    this.movType = P5MovRec.movTypeId.webm;
 
     switch (keyCode) {
       case 82: //r: start/stop Record
@@ -141,7 +141,7 @@ class P5MovRec {
         this.stopRec();
         break;
       case 77: //m: mp4
-        this.movType = this.movTypeId.mp4;
+        this.movType = P5MovRec.movTypeId.mp4;
         this.stopRec();
         break;
       default:
@@ -188,6 +188,16 @@ class P5MovRec {
       isStopped = true;
     }
     return isStopped;
+  }
+
+  /**
+   * Set movie type Webm or MP4.
+   *
+   * @param movType specify codec with P5MovRec.movTypeId.
+   *                We support webm and mp4.
+   */
+  setMovType( movType ) {
+    this.movType = movType;
   }
 
   /**
